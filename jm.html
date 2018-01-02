@@ -1,0 +1,161 @@
+<!DOCTYPE hmtl>
+<html>
+<head>
+	<title>
+	HTML5/CSS3 Responsive Theme
+	</title>
+	<meta charset="utf-8" />
+
+	<link rel="stylesheet" href="jm.css" type="text/css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<script src="angular.min.js"></script>
+	<script src="reddit.js"></script>
+
+</head>
+
+<body class="body">
+
+	<header class="mainHeader">
+		<div id="img">
+		
+		<div style="position: relative;top: 45%;">Image Header</div>
+		
+		</div>
+		
+		<nav>
+			<ul>
+				<li><a class="active" href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Portfolio</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="mainContent">
+	
+		<div class="content">
+			<article class="topcontent">
+				<header>
+					<h2>Neuroscience</h2>
+				</header>
+				
+				<!-- <footer>
+					<p class="postInfo">
+					 This post is written by Adarsh 
+					</p>
+				
+				</footer> -->
+				
+				<content>
+										
+					<div class="articleSection">
+						<div class="imageSection">	
+						<img src="img.jpg"></img>
+						</div>
+						
+						<div class="contentSection">
+							
+							<div>
+								Study suggests ‘sugar coma’ is real — glucose ingestion leads to worse cognitive performance. A new double-blind, placebo-controlled study found that glucose-containing sweeteners were linked to reduced attention and response times.
+							</div>
+							<div class="linkSection">
+									<span>898 comments</span>
+									<span>share</span>
+									<span>save</span>
+									<span>hide</span>
+									<span>give gold</span>
+									<span>report</span>
+									<span>crosspost</span>
+							</div>
+							<div class="commentArea">
+						
+								<textarea rows="8" cols="50">
+									At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+								</textarea>
+						
+							</div>
+						
+							<div class="submitComment">
+						
+								<button>Add Comment</button>
+						
+							</div>
+						</div>
+						
+					
+					</div>
+					
+					<div ng-app="Example">
+    
+						<div ng-controller="TestController">
+							
+							<ul>
+								<li ng-repeat="item in list" id="{{item.id}}">
+									<span>{{item.name}}</span>
+									<button ng-click="addComments(item)">Add</button>
+									<ul ng-show="item.children">
+										<li id="{{child.id}}" ng-repeat="child in item.children">
+											<span>{{child.name}}</span>
+											<button ng-click="addComments(child)">Add</button>
+											 <ul ng-show="child.children">
+												  <li ng-repeat="subChild in child.children">
+													  <span>{{subChild.name}}</span>
+												  </li>
+											 </ul>
+										</li>
+									</ul>
+							</ul>
+							
+						</div>
+					
+					</div>
+					
+					
+				
+					
+
+				</content>
+				
+			</article>
+			
+		</div>
+	</div>
+	
+	<aside class="top-sidebar">
+	
+		<article>
+			<h2>Top Side Bar</h2>
+			<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			</p>
+		</article>
+	
+	</aside>
+	<aside class="middle-sidebar">
+	
+		<article>
+			<h2>Middle Side Bar</h2>
+			<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			</p>
+		</article>
+	
+	</aside>
+	<aside class="bottom-sidebar">
+	
+		<article>
+			<h2>Bottom Side Bar</h2>
+			<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			</p>
+		</article>
+	
+	</aside>
+	
+	<footer class="mainFooter">
+	<p>Copyright  &copy; 2017 <a href="#" title="1stwebdesigner"> 1st Web Designer</a></p>
+	</footer>
+
+</body>
+</html>

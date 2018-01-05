@@ -1,18 +1,22 @@
 angular.module('Example', []).controller('TestController', [
     '$scope', '$parse','$timeout',
     function ($scope,$parse,$timeout) {
-    	$scope.list = [
-    	               { name : 'At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.', id: "parent1" , comment : false },
-    	               { name : 'At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.' , id: "parent2" , comment : false },
-    	               { name : 'At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.' , id: "parent3" , comment : false },
-    	               ];
+    	$scope.list = [];
+    	$scope.commentsCount=0;
 
-
-
+    	$scope.alreadyHaveComment=false;
     	$scope.addComments =function(item){
 
     		$scope.div = document.getElementById(item.id);
+    		for (var i = 0; i < $scope.div.childNodes.length; i++) {
+    		    if ($scope.div.childNodes[i].className == "submit-comment") {
+    		    	$scope.alreadyHaveComment=true;
+    		      break;
+    		    }        
+    		}
 
+    		if(!$scope.alreadyHaveComment){
+    		
     		$scope.input = document.createElement("textarea");
 
     		$scope.submitComment = document.createElement("button");
@@ -29,13 +33,12 @@ angular.module('Example', []).controller('TestController', [
     		$scope.input.rows = "6";
     		$scope.div.appendChild($scope.input); //appendChild
     		$scope.div.appendChild($scope.submitComment);
-
+    		}
 
     	};
 
 
     	$scope.add = function (item) {
-    		console.log("df",item); 
     		item.children = (item.children || []);
     		var count = item.children.length + 1;
     		console.log(item.children);
@@ -48,10 +51,23 @@ angular.module('Example', []).controller('TestController', [
     			$scope.div.removeChild($scope.submitComment);
     			console.log(item.children);
     		},100)
-    		
-    		
-
+    		$scope.alreadyHaveComment=false;
     	};
+    	$scope.delete = function(data) {
+    		  data.children = [];
+        };
+        $scope.count = 0;
+        $scope.addComment=function(){
+        	
+        	console.log($scope.initialComment);
+        	$scope.list.push({
+        		name : $scope.initialComment,
+        		id : 'parent' + $scope.count
+        	});
+        	$scope.count++;
+        	$scope.commentsCount++;
+        	$scope.initialComment="";
+        }
 
     }
 ]);

@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 
 <link rel="stylesheet" href="jm.css" type="text/css" />
-<link rel="stylesheet" href="font-awesome.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <script src="angular.min.js"></script>
 <script src="reddit.js"></script>
@@ -61,12 +61,12 @@
 							placebo-controlled study found that glucose-containing sweeteners
 							were linked to reduced attention and response times.</div>
 						<div class="linkSection">
-							<span>898 comments</span> <span>share</span> <span>save</span> <span>hide</span>
+							<span>{{commentsCount}} comments</span> <span>share</span> <span>save</span> <span>hide</span>
 							<span>give gold</span> <span>report</span> <span>crosspost</span>
 						</div>
 						<div class="commentArea">
 
-							<textarea rows="8" cols="50">
+							<textarea rows="8" cols="50" ng-model="initialComment">
 									At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
 								</textarea>
 
@@ -74,31 +74,26 @@
 
 						<div class="submitComment">
 
-							<button>Add Comment</button>
+							<button ng-click="addComment()">Add Comment</button>
 
 						</div>
 						
 						<div class="comment-section">
-						  <input id="toggle" type="checkbox" checked>
- 						  <label for="toggle">Hidden Kitten</label>
+						 <!--  <input id="toggle" type="checkbox" checked>
+ 						  <label for="toggle">Hidden Kitten</label> -->
 						  <ul id="expand">
 							<li class="comments" ng-repeat="item in list" id="{{item.id}}" ng-include="'tree_item_renderer.html'">
 							</li>
 						  </ul>
-						
-						
 						</div>
-						
 					</div>
-
-
 				</div>
 				<script type="text/ng-template"  id="tree_item_renderer.html">
 					 <div class="comment-text">{{item.name}}</div>
-    				 <button ng-click="addComments(item)">Add Comment</button>
-  					 <button ng-click="delete(item)" ng-show="item.children.length > 0">Delete nodes</button>
+ 					 <i ng-click="addComments(item)" class="fa fa-reply"></i>
+					 <i ng-click="delete(item)" class="fa fa-trash-o"></i>
  					 <ul>
- 			      	 	<li class="comments" ng-repeat="item in item.children" id="{{item.id}}" ng-include="'tree_item_renderer.html'">{{item.name}}</li>
+ 			      	 	<li class="sub-comments" ng-repeat="item in item.children" id="{{item.id}}" ng-include="'tree_item_renderer.html'">{{item.name}}</li>
 				     </ul>
 				</script>
 				

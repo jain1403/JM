@@ -3,7 +3,7 @@ angular.module('Example', []).controller('TestController', [
     function ($scope,$parse,$timeout) {
     	$scope.list = [];
     	$scope.commentsCount=0;
-
+		$scope.initialComment="";
     	$scope.alreadyHaveComment=false;
     	$scope.addComments =function(item){
 
@@ -54,12 +54,20 @@ angular.module('Example', []).controller('TestController', [
     		$scope.alreadyHaveComment=false;
     	};
     	$scope.delete = function(data) {
-    		  data.children = [];
+			document.getElementById(data.id).remove();
+			/* if(data.children.length == 0){
+				$scope.list = $scope.list.filter(function(item) { 
+					return item.id !== data.id
+				})
+			}else{
+				data.children = [];
+				
+			} */
+    		  
         };
         $scope.count = 0;
         $scope.addComment=function(){
-        	
-        	console.log($scope.initialComment);
+        	if($scope.initialComment !== ""){
         	$scope.list.push({
         		name : $scope.initialComment,
         		id : 'parent' + $scope.count
@@ -67,6 +75,7 @@ angular.module('Example', []).controller('TestController', [
         	$scope.count++;
         	$scope.commentsCount++;
         	$scope.initialComment="";
+			}
         }
 
     }

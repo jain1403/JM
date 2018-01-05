@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <script src="angular.min.js"></script>
-<script src="reddit.js"></script>
+<script src="jm.js"></script>
 
 </head>
 
@@ -81,7 +81,8 @@
 						<div class="comment-section">
 						 <!--  <input id="toggle" type="checkbox" checked>
  						  <label for="toggle">Hidden Kitten</label> -->
-						  <ul id="expand">
+						  <div class="commentLabel" ng-show="list.length > 0">Comments</div>
+						  <ul>
 							<li class="comments" ng-repeat="item in list" id="{{item.id}}" ng-include="'tree_item_renderer.html'">
 							</li>
 						  </ul>

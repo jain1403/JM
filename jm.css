@@ -16,63 +16,11 @@ h2 {
 p {
   font-size: 13px;
 }
-/* input {
-  display: none;
-  visibility: hidden;
-}
-label {
-  display: block;
-  padding: 0.5em;
-  text-align: center;
-  border-bottom: 1px solid #CCC;
-  color: #666;
-}
-label:hover {
-  color: #000;
-}
-label::before {
-  font-family: Consolas, monaco, monospace;
-  font-weight: bold;
-  font-size: 15px;
-  content: "+";
-  vertical-align: text-top;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-right: 3px;
-  background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
-}
-#expand {
-  height: 0px;
-  overflow: hidden;
-  transition: height 0.5s;
-  background: url(http://placekitten.com/g/600/300);
-  color: #FFF;
-}
-section {
-  padding: 0 20px;
-}
-#toggle:checked ~ #expand {
-  height: 250px;
-}
-#toggle:checked ~ label::before {
-  content: "-";
-} */
-
-
-
-
-
-
-
-
 
 
 .fa{
 	padding: 1%;
 }
-
-
 
 
 body {
@@ -129,15 +77,20 @@ img {
 	border: none;
 	cursor: pointer;
 	margin-left: 9px;
+	margin-bottom: 3%;
 }
 .comment-section{
-    margin-top: 5%;
-    
     padding:1%;
+}
+.commentLabel{
+    font-size: 20px;
+	font-weight:600;
 }
 .comments{
 	    border-left: 1px solid #dccccc;
+		border: 1px solid #dccccc;
 	        padding-left: 3%;
+			padding-bottom: 3%;
 }
 .comment-text{
 padding: 1% 1% 3% 1%;
@@ -145,13 +98,16 @@ padding: 1% 1% 3% 1%;
 
 .sub-comments{
 	  border-left: 1px solid #dccccc;
-	        padding-left: 3%;
-	            margin-top: 3%;
+	  border-top: 1px solid #dccccc;
+	   border-bottom: 1px solid #dccccc;
+	           padding-left: 3%;
+    margin-top: 1%;
+    padding-bottom: 3%;
 }
 
 ul{
 	    list-style: none;
-    padding-left: 3%;
+    padding-left: 0%;
 }
 
 .text-area{
